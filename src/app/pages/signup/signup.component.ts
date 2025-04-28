@@ -5,11 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserServiceService } from '../../services/user-service.service';
-import { provideHttpClient } from '@angular/common/http'; 
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, HttpClientModule],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, HttpClientModule, MatSnackBarModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss',
   standalone: true,
@@ -19,7 +20,7 @@ import { provideHttpClient } from '@angular/common/http';
 })
 export class SignupComponent {
 
-  constructor(private userService: UserServiceService){
+  constructor(private userService: UserServiceService, private _snack: MatSnackBar){
 
   }
 
@@ -33,18 +34,31 @@ export class SignupComponent {
   }
 
   formSubmit() {
-    if(this.user.userName === '' || this.user.userName === null){
-      alert("User name is required");
+    if(this.user.userName.length<=3){
+      this._snack.open("Username length should be greater than 3!!", 'OK', {
+        duration: 3000
+      });
       return;
     }
+
+    //TODO: VALIDATION    
+
     this.userService.createUser(this.user).subscribe(
-      (data) => {
+      (data:any) => {
         console.log(data);
-        alert("success")
+        swal.fire({
+          title: "Success",
+          text: "User is registered with id = " + data.id,
+          icon: "success"
+        });
       },
       (error)=> {
         console.log(error);
-        alert("something went wrong");
+        swal.fire({
+          title: "Error",
+          text: "Something went wrong!!",
+          icon: "error"
+        });
       }
     );
   }
