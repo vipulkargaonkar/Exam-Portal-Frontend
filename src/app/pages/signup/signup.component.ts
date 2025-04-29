@@ -7,10 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserServiceService } from '../../services/user-service.service';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import swal from 'sweetalert2';
+import { MatCardModule } from '@Angular/material/card';
 
 @Component({
   selector: 'app-signup',
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, HttpClientModule, MatSnackBarModule],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, HttpClientModule, MatSnackBarModule, MatCardModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss',
   standalone: true,
