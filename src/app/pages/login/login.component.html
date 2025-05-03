@@ -8,18 +8,21 @@
           </div>
 
           <h1 class="text-center">Login Here</h1>
-          <form>
+
+          <form (ngSubmit)="formSubmit()">
             <!--Username field-->
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>User Name</mat-label>
-              <input name="username"
+              <input
+              [(ngModel)] = "loginData.username" name="username"
                      matInput placeholder="Enter here" required="true">
             </mat-form-field>
 
             <!--Password field-->
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Password</mat-label>
-              <input name="password"
+              <input
+              [(ngModel)] = "loginData.password" name="password"
                      type="password" matInput placeholder="Enter here" required="true">
             </mat-form-field>
 
@@ -33,3 +36,4 @@
       </div>
     </div>
   </div>
+</div>
