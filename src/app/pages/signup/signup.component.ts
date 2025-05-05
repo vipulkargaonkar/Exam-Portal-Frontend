@@ -26,7 +26,7 @@ export class SignupComponent {
   }
 
   public user = {
-    userName: '',
+    username: '',
     password: '',
     firstName: '',
     lastName: '',
@@ -35,7 +35,7 @@ export class SignupComponent {
   }
 
   formSubmit() {
-    if(this.user.userName.length<=3){
+    if(this.user.username.length<=3){
       this._snack.open("Username length should be greater than 3!!", 'OK', {
         duration: 3000
       });
