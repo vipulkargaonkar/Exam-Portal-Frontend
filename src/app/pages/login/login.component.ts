@@ -8,6 +8,8 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatCardModule } from '@Angular/material/card';
 import swal from 'sweetalert2';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
+import { authInterceptorProviders } from '../../services/auth.interceptor';
 
 @Component({
   selector: 'app-login',
@@ -16,12 +18,12 @@ import { LoginService } from '../../services/login.service';
   styleUrl: './login.component.scss',
   standalone: true,
   providers: [
-      LoginService
+      authInterceptorProviders
     ]
 })
 export class LoginComponent {
 
-  constructor(private snack : MatSnackBar, private login : LoginService) {
+  constructor(private snack : MatSnackBar, private login : LoginService, private router: Router) {
 
   }
 
@@ -50,15 +52,33 @@ export class LoginComponent {
            console.log(data);
                   swal.fire({
                     title: "Success",
-                    text: "Login successful " + data.username,
+                    text: "Login successful ",
                     icon: "success"
                   });
+
+                  this.login.loginUser(data.token);
+                  this.login.getCurrentUser().subscribe(
+                  (user:any)=>{
+                    this.login.setUser(user);
+                    console.log(user);
+                    
+                    if(this.login.getUserRole() === "ADMIN") {
+                      this.router.navigate(['admin-dashboard']);
+                      this.login.loginStatusSubject.next(true);
+                    } else if(this.login.getUserRole() === "NORMAL") {
+                      this.router.navigate(['user-dashboard']);
+                      this.login.loginStatusSubject.next(true);
+                    } else {
+                      this.login.logout();
+                    }
+                  });
+
         },
         (error) => {
           console.log(error);
                   swal.fire({
                     title: "Error",
-                    text: "Something went wrong!!",
+                    text: "Invalid details !!!",
                     icon: "error"
                   });
         }

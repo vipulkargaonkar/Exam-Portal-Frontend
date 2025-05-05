@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 import baseUrl from './helper';
 
 @Injectable({
@@ -8,6 +9,16 @@ import baseUrl from './helper';
 export class LoginService {
 
   constructor(private http : HttpClient) { }
+
+  public loginStatusSubject = new BehaviorSubject<boolean>(this.isLoggedIn());
+
+  get isLoggedIn$() {
+    return this.loginStatusSubject.asObservable();
+  }
+
+  public getCurrentUser() {
+    return this.http.get(`${baseUrl}/current-user`)
+  }
 
   public generateToken(loginData : any) {
     return this.http.post(`${baseUrl}/generate-token`, loginData);
