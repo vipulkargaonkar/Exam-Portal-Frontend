@@ -1,0 +1,50 @@
+mat-card {
+    padding: 5px;
+}
+
+.center-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+
+.welcome {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .table tr td {
+    padding: 15px 10px;
+    border: 0.55px solid rgb(49, 36, 87);
+  }
+
+  .buttons {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
