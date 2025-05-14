@@ -1,0 +1,28 @@
+<mat-card class="mt10 mb10" *ngFor="let q of quizzes">
+    <mat-card-header>
+        <div mat-card-avatar>
+            <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Exam Logo" width="100" height="100" />
+        </div>
+        <mat-card-title>
+            {{q.title}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{q.category.title}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{q.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="mt10" mat-raised-button>Questions</button>
+        <button class="ml10" mat-raised-button>Max Marks: {{q.maxMarks}}</button>
+        <button class="ml10" mat-raised-button>Questions: {{q.noOfQuestions}}</button>
+        <button class="ml10" mat-raised-button>Update</button>
+        <button class="ml10" mat-raised-button>Attempts</button>
+
+    </mat-card-actions>
+</mat-card>
+
+<div class="container text-center mt20">
+    <button mat-raised-button>Add New Quiz</button>
+</div>
