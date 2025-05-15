@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { QuizService } from '../../../services/quiz.service';
 import Swal from 'sweetalert2';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-view-quizzes',
-  imports: [MatCardModule, CommonModule, MatButtonModule],
+  imports: [MatCardModule, CommonModule, MatButtonModule, RouterModule],
   templateUrl: './view-quizzes.component.html',
   styleUrl: './view-quizzes.component.scss'
 })
