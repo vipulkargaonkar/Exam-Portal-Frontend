@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-add-quiz',
@@ -44,7 +44,7 @@ export class AddQuizComponent implements OnInit {
       this.categories=data;
     },
     err=>{
-      Swal.fire("Error in Loading data from server")
+      Swal.fire("ERROR!!!", "Error in Loading data from server")
     });
   }
 
@@ -53,7 +53,7 @@ export class AddQuizComponent implements OnInit {
       Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'All fields are Required!',
+      text: 'All fields are required!',
       })
       return;
     }
