@@ -17,9 +17,10 @@
         <button class="mt10" mat-raised-button>Questions</button>
         <button class="ml10" mat-raised-button>Max Marks: {{q.maxMarks}}</button>
         <button class="ml10" mat-raised-button>Questions: {{q.noOfQuestions}}</button>
-        <button class="ml10" mat-raised-button>Update</button>
+        <button class="ml10" mat-raised-button [routerLink]="'/admin-dashboard/quiz/' + q.qid">Update</button>
         <button class="ml10" mat-raised-button>Attempts</button>
         <button class="ml10" mat-raised-button (click)="deleteQuiz(q.qid)">Delete</button>
+        <button class="ml10" mat-raised-button>Active: {{q.active==true?"yes":"no"}}</button>
     </mat-card-actions>
 </mat-card>
 
