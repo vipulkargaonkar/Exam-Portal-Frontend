@@ -14,7 +14,7 @@
         <p>{{q.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button class="mt10" mat-raised-button>Questions</button>
+        <button class="mt10" mat-raised-button [routerLink]="['/admin-dashboard/view-questions/' + q.qid + '/' + q.title]" routerLinkActive="router-link-active">Questions</button>
         <button class="ml10" mat-raised-button>Max Marks: {{q.maxMarks}}</button>
         <button class="ml10" mat-raised-button>Questions: {{q.noOfQuestions}}</button>
         <button class="ml10" mat-raised-button [routerLink]="'/admin-dashboard/quiz/' + q.qid">Update</button>
