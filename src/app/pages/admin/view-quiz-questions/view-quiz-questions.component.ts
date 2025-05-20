@@ -11,10 +11,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { QuestionService } from '../../../services/question.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-view-quiz-questions',
-  imports: [MatSelectModule, MatSlideToggleModule, MatButtonToggleModule, MatInputModule, MatFormFieldModule, MatCardModule, CommonModule, FormsModule, MatButtonModule],
+  imports: [RouterModule, MatSelectModule, MatSlideToggleModule, MatButtonToggleModule, MatInputModule, MatFormFieldModule, MatCardModule, CommonModule, FormsModule, MatButtonModule],
   templateUrl: './view-quiz-questions.component.html',
   styleUrl: './view-quiz-questions.component.scss'
 })
