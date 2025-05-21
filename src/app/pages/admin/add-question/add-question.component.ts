@@ -63,13 +63,13 @@ export class AddQuestionComponent implements OnInit {
     //Form Submit
     this.addquestion.addQuestion(this.question).subscribe(
       (data:any)=>{
-      this.question.content='';
-      this.question.option1='';
-      this.question.option2='';
-      this.question.option3='';
-      this.question.option4='';
-      this.question.answer='';
-      Swal.fire("Success","Question has been added successfully",'success')
+        this.question.content='';
+        this.question.option1='';
+        this.question.option2='';
+        this.question.option3='';
+        this.question.option4='';
+        this.question.answer='';
+        Swal.fire("Success","Question has been added successfully",'success')
     },
     err=>{
       Swal.fire('Error','Something went wrong,try again after sometime','error');
