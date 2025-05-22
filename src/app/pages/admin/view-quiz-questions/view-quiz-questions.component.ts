@@ -51,5 +51,26 @@ export class ViewQuizQuestionsComponent implements OnInit {
     });
   }
 
+  deleteQuestion(qId: any) {
+    Swal.fire({
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonText: 'Delete',
+      title: 'Are you sure, want to delete this question?'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        this._question.deleteQuestion(qId).subscribe(
+          (data) => {
+            Swal.fire('success', "Question deleted!!!", 'success');
+            this.questions = this.questions.filter((q) => q.quesId != qId)
+          }, 
+          (err) => {
+            Swal.fire('Error', "Something went wrong", 'error');
+          }
+        )
+      }
+    })
+  }
+
   
 }

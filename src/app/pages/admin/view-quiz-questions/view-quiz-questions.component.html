@@ -28,6 +28,10 @@
                         <p><b>Correct answer:</b> {{q.answer}}</p>
                     </div>
                 </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-raised-button (click)="deleteQuestion(q.quesId)">Delete</button>
+                </mat-card-actions>
             </mat-card>
         </div>
     </div>
