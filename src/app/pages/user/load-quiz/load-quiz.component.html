@@ -1,0 +1,36 @@
+<div class="bootstarp-wrapper">
+    <div class="container-fluid">
+        <h1>Available Quizzes</h1>
+
+        <div class="row" *ngIf="quizzes">
+            <div class="col-md-4" *ngFor="let q of quizzes">
+                <mat-card>
+                    <mat-card-header>
+                        <div mat-card-avatar>
+                            <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Exam Logo" width="100" height="100" />
+                        </div>
+                        
+                        <mat-card-title>
+                            <h3>{{q.title}}</h3>
+                        </mat-card-title>
+                        <mat-card-subtitle class="mb20">
+                            {{q.category.title}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <p class="truncate">{{q.description}}</p>
+                    </mat-card-content>
+
+                    <mat-card-actions>
+                        <button mat-raised-button>View</button>
+                        <button mat-raised-button class="ml20">Start</button>
+                        <button mat-raised-button class="ml20">Questions: {{q.noOfQuestions}}</button>
+                        <button mat-raised-button class="ml20">Marks: {{q.maxMarks}}</button>
+
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
