@@ -24,8 +24,9 @@ export class LoadQuizComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.catId = this.router.snapshot.params['catId'];
-    if(this.catId == 0) {
+    this.router.params.subscribe((param)=>{
+      this.catId = param['catId'];
+      if(this.catId == 0) {
       this.quiz.quizzes().subscribe(
         (data: any) => {
           this.quizzes = data;
@@ -36,8 +37,15 @@ export class LoadQuizComponent implements OnInit {
       )
     }
     else {
-
+      this.quiz.getQuizOfCategory(this.catId).subscribe(
+        (data: any) => {
+          this.quizzes = data;
+        },
+        (err) => {
+          Swal.fire("Error", "Error in loading quiz data from server!!", 'error');
+        }
+      )
     }
+    });
   }
-
 }
