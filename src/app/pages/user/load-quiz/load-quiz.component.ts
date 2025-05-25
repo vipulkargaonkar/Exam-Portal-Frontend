@@ -27,7 +27,7 @@ export class LoadQuizComponent implements OnInit {
     this.router.params.subscribe((param)=>{
       this.catId = param['catId'];
       if(this.catId == 0) {
-      this.quiz.quizzes().subscribe(
+      this.quiz.getActiveQuizzes().subscribe(
         (data: any) => {
           this.quizzes = data;
         },
@@ -37,7 +37,7 @@ export class LoadQuizComponent implements OnInit {
       )
     }
     else {
-      this.quiz.getQuizOfCategory(this.catId).subscribe(
+      this.quiz.getActiveQuizzesOfCategory(this.catId).subscribe(
         (data: any) => {
           this.quizzes = data;
         },
