@@ -7,10 +7,11 @@ import {MatListModule} from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-load-quiz',
-  imports: [MatButtonModule, MatCardModule, MatListModule, MatIconModule, CommonModule],
+  imports: [RouterModule, MatButtonModule, MatCardModule, MatListModule, MatIconModule, CommonModule],
   templateUrl: './load-quiz.component.html',
   styleUrl: './load-quiz.component.scss'
 })

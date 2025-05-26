@@ -24,7 +24,7 @@
 
                     <mat-card-actions>
                         <button mat-raised-button>View</button>
-                        <button mat-raised-button class="ml20">Start</button>
+                        <button mat-raised-button class="ml20" [routerLink]="'/user-dashboard/instructions/' + q.qid">Start</button>
                         <button mat-raised-button class="ml20">Questions: {{q.noOfQuestions}}</button>
                         <button mat-raised-button class="ml20">Marks: {{q.maxMarks}}</button>
 
