@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from '../../../services/quiz.service';
 import Swal from 'sweetalert2';
 import { MatCardModule } from '@Angular/material/card';
@@ -20,7 +20,7 @@ export class InstructionsComponent implements OnInit {
   qid: any;
   quizzes: any;
 
-  constructor(private route: ActivatedRoute, private quiz: QuizService) {
+  constructor(private route: ActivatedRoute, private quiz: QuizService, private router: Router) {
 
   }
 
@@ -37,7 +37,17 @@ export class InstructionsComponent implements OnInit {
   }
 
   startQuiz(){
-    
+    Swal.fire({
+      title: 'Do you want to start the quiz?',
+        showCancelButton: true,
+        confirmButtonText: 'Start',
+        icon:'info'
+      }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/start/'+this.qid]);
+      } 
+    })
   }
-
 }
+
+
