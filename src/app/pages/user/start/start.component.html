@@ -2,7 +2,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <h3>Instructions</h3>
+                <mat-card style="margin-top: 70px;">
+                    <h3 class="text-center">Instructions</h3>
+                    <mat-card-content>
+                        <ul>
+                            <li>Do not Refresh the page Otherwise you will get new questions in this quiz</li>
+                            <li>Do not switch the tab</li>
+                            <li>Do not minimize window</li>
+                        </ul>
+                    </mat-card-content>
+                </mat-card>
             </div>
             <div class="col-md-8">
                 <ng-container *ngIf = "questions">
