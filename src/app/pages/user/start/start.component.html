@@ -26,29 +26,30 @@
                         
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="radio"
-                                [value]="q.option1" [name]="i">{{q.option1}}
+                                <input [(ngModel)]="q.givenAnswer" type="radio"
+                                [value]="q.option1" [name]="'question'+i"
+                                >{{q.option1}}
                             </div>
                             <div class="col-md-6">
-                                <input type="radio"
-                                [value]="q.option2" [name]="i">{{q.option2}}
+                                <input [(ngModel)]="q.givenAnswer" type="radio"
+                                [value]="q.option2" [name]="'question'+i">{{q.option2}}
                             </div>
                         </div>
                         <div class="row mt10">
                             <div class="col-md-6">
-                                <input type="radio"
-                                [value]="q.option3" [name]="i">{{q.option3}}
+                                <input [(ngModel)]="q.givenAnswer" type="radio"
+                                [value]="q.option3" [name]="'question'+i">{{q.option3}}
                             </div>
                             <div class="col-md-6">
-                                <input type="radio"
-                                [value]="q.option4" [name]="i">{{q.option4}}
+                                <input [(ngModel)]="q.givenAnswer" type="radio"
+                                [value]="q.option4" [name]="'question'+i">{{q.option4}}
                             </div>
                         </div>
                     </mat-card-content>
                 </mat-card>
 
                 <div class="container text-center mt20 mb20">
-                    <button mat-raised-button>Submit Quiz</button>
+                    <button (click)="submitQuiz()" mat-raised-button>Submit Quiz</button>
                 </div>
             </div>
             <div class="col-md-2">

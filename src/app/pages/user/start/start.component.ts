@@ -77,7 +77,7 @@ export class StartComponent implements OnInit {
 
   submitQuiz(){
     Swal.fire({
-      title: 'Do you want to Submit the Quiz?',
+      title: 'Do you want to submit the quiz?',
       showCancelButton: true,
       confirmButtonText: 'Submit',
       icon:'info'
