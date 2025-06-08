@@ -1,4 +1,4 @@
-<div class="bootstrap-wrapper">
+<div class="bootstrap-wrapper" *ngIf="!isSubmit">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
@@ -55,6 +55,31 @@
             <div class="col-md-2">
 
             </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="bootstrap-wrapper" *ngIf="isSubmit">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt20">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        Quiz Result
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="text-center">
+                    <h1>Marks scored: {{marksGot}}</h1>
+                    <h1>Correct answers: {{correctAnswers}}</h1>
+                    <h1>Questions attempted: {{attempted}}</h1>
+                </mat-card-content>
+                <mat-card-actions >
+                    <button mat-raised-button>Print</button>
+                    <button class="ml10" mat-raised-button [routerLink]="'/user-dashboard/0'">Home</button>
+
+                </mat-card-actions>
+            </mat-card>
         </div>
     </div>
 </div>
