@@ -13,10 +13,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-start',
-  imports: [RouterModule, MatSelectModule, MatSlideToggleModule, MatButtonToggleModule, MatInputModule, MatFormFieldModule, MatCardModule, CommonModule, FormsModule, MatButtonModule],
+  imports: [MatProgressSpinnerModule, RouterModule, MatSelectModule, MatSlideToggleModule, MatButtonToggleModule, MatInputModule, MatFormFieldModule, MatCardModule, CommonModule, FormsModule, MatButtonModule],
   templateUrl: './start.component.html',
   styleUrl: './start.component.scss'
 })
@@ -67,7 +68,7 @@ export class StartComponent implements OnInit {
   startTimer() {
     let t=window.setInterval(()=>{
     if(this.timer<=0) {
-      this.submitQuiz();
+      this.evalQuiz();
       clearInterval(t);
     }else{
       this.timer--;
@@ -110,7 +111,7 @@ export class StartComponent implements OnInit {
   getFormattedTime() {
     let mm=Math.floor(this.timer/60);
     let ss=this.timer - mm*60;
-    return `${mm} Min:${ss} Sec`;
+    return `${mm} Min : ${ss} Sec`;
   }
 
 }

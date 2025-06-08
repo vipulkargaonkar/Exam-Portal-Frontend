@@ -13,7 +13,7 @@
                     </mat-card-content>
                 </mat-card>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <ng-container *ngIf = "questions">
                     <mat-card>
                         <h1 class="mt20">On going quiz: {{questions[0].quiz.title}}</h1>
@@ -52,8 +52,21 @@
                     <button (click)="submitQuiz()" mat-raised-button>Submit Quiz</button>
                 </div>
             </div>
-            <div class="col-md-2">
-
+            <div class="col-md-3">
+                <mat-card  style="margin-top: 75px;">
+                    <mat-card-header>
+                        <mat-card-title>
+                            Progress
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            Quiz will be automatically submitted in 
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content class="mt20">
+                        <h1 class="text-center">{{getFormattedTime()}}</h1>
+                        <mat-spinner mode="determinate" [value]="(timer / (this.questions.length*2*60))*100" style="margin: auto;"></mat-spinner>
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </div>
