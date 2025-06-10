@@ -30,11 +30,11 @@ export class StartComponent implements OnInit {
   attempted=0;
   isSubmit=false;
   timer:any;
-  
+
 
   constructor(private locationSt: LocationStrategy, private route: ActivatedRoute, private question: QuestionService) { }
 
-  
+
   ngOnInit(): void {
     this.preventBackButton();
     this.qid = this.route.snapshot.params['qid'];
@@ -90,17 +90,17 @@ export class StartComponent implements OnInit {
   }
 
   evalQuiz() {
-    this.isSubmit=true;
-    this.questions.forEach((q: { givenAnswer: any; answer: any; })=>{
-      if(q.givenAnswer==q.answer) {
-        this.correctAnswers++;
-        let marksSingle=this.questions[0].quiz.maxMarks/this.questions.length;
-        this.marksGot+=marksSingle;
+    this.question.evalQuiz(this.questions).subscribe(
+      (data:any) => {
+          this.marksGot = data.marksGot;
+          this.correctAnswers = data.correctAnswers;
+          this.attempted = data.attempted;
+          this.isSubmit = true;
+      },
+      (err) => {
+         Swal.fire("Error","Something Went Wrong","error");
       }
-      if(q.givenAnswer.trim()!='') {
-        this.attempted++;
-      }
-    });
+    )
   }
 
 
