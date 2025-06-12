@@ -31,9 +31,7 @@ export class StartComponent implements OnInit {
   isSubmit=false;
   timer:any;
 
-
   constructor(private locationSt: LocationStrategy, private route: ActivatedRoute, private question: QuestionService) { }
-
 
   ngOnInit(): void {
     this.preventBackButton();
@@ -92,7 +90,7 @@ export class StartComponent implements OnInit {
   evalQuiz() {
     this.question.evalQuiz(this.questions).subscribe(
       (data:any) => {
-          this.marksGot = data.marksGot;
+          this.marksGot = parseFloat(Number(data.marksGot).toFixed(2));
           this.correctAnswers = data.correctAnswers;
           this.attempted = data.attempted;
           this.isSubmit = true;
@@ -102,7 +100,6 @@ export class StartComponent implements OnInit {
       }
     )
   }
-
 
   printPDF() {
     window.print();

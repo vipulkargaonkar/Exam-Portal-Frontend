@@ -88,7 +88,7 @@
                     <h1>Questions attempted: {{attempted}}</h1>
                 </mat-card-content>
                 <mat-card-actions >
-                    <button mat-raised-button>Print</button>
+                    <button mat-raised-button (click)="printPDF()">Print</button>
                     <button class="ml10" mat-raised-button [routerLink]="'/user-dashboard/0'">Home</button>
 
                 </mat-card-actions>
